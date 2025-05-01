@@ -11,9 +11,13 @@ REST API for managing tech events and attendee registrations
     <code id="git-url">
         git clone https://github.com/deepanshu016/AccelleronTest.git
     </code>
+</pre>
+<pre>
     <code id="git-copy">
         cd AccelleronTest
     </code>
+</pre>
+<pre>
     <code id="composert-install">
         composer install
     </code>
