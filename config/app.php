@@ -122,5 +122,5 @@ return [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
-
+    'rate_limit_duration' => env('RATE_LIMIT_DURATION',2)
 ];

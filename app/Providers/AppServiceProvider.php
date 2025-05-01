@@ -33,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(2)->by($request->ip());
+            return Limit::perMinute(config('app.rate_limit_duration'))->by($request->ip());
         });
 
     }

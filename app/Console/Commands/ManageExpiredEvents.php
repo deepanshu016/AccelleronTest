@@ -33,7 +33,12 @@ class ManageExpiredEvents extends Command
 
         $count = $expiredEvents->count();
 
-        Event::where('date', '<', now())->delete();
+        Event::where('date', '<', now())
+            ->chunkById(100, function ($events) {
+            foreach ($events as $event) {
+                $event->delete(); // fires deleting event, cascades soft deletes
+            }
+        });
 
         $this->info("Total $count expired events cleared from database.....");
     }

@@ -29,15 +29,15 @@ class EventController extends Controller
 
 
     public function index(Request $request){
-        try{
+        // try{
            $eventList = $this->event->all(['bookings']);
            if($eventList->isEmpty()){
             return ApiResponse::success([],false,'No Data found !!!');
            }
            return ApiResponse::success($eventList,true,'Event Fetched Successfully');
-        }catch(Exception $e){
-            return ApiResponse::error('Something went wrong',500,$e->getMessage());
-        }
+        // }catch(Exception $e){
+        //     return ApiResponse::error('Something went wrong',500,$e->getMessage());
+        // }
     }
     // Create Event
     public function store(EventRequest $request){

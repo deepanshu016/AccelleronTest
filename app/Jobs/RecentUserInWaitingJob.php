@@ -39,15 +39,18 @@ class RecentUserInWaitingJob implements ShouldQueue
 
             if ($recentUserWithInWaiting) {
                 Log::info('Found waiting booking:', ['booking_id' => json_decode($recentUserWithInWaiting)]);
+                $confirmedTicket  = $this->booking->count([['event_id','=',$this->event->id],['booking_status','=','confirmed']]);
+                // Log::info('Capacity', ['confirmedTicket' => $confirmedTicket]);
+                // Log::info('Capacity', ['capacity' => $this->event->capacity]);
 
-                $recentUserWithInWaiting->update([
-                    'booking_status' => 'confirmed'
-                ]);
-                Log::info('Booking status updated to confirmed for booking ID: ' . $recentUserWithInWaiting->id);
-
-                $recentUserWithInWaiting->user->notify(new ManageWaitingListNotification($recentUserWithInWaiting));
-                Log::info('Notification dispatched to user ID: ' . $recentUserWithInWaiting->user->id);
-
+                if($confirmedTicket < $this->event->capacity){
+                    $recentUserWithInWaiting->update([
+                        'booking_status' => 'confirmed'
+                    ]);
+                    Log::info('Booking status updated to confirmed for booking ID: ' . $recentUserWithInWaiting->id);
+                    $recentUserWithInWaiting->user->notify(new ManageWaitingListNotification($recentUserWithInWaiting));
+                    Log::info('Notification dispatched to user ID: ' . $recentUserWithInWaiting->user->id);
+                }
             }else{
                 Log::info('No waiting bookings found for event ID: ' . $this->event->id);
             }

@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "7c06d9e5-b7e0-4a06-8b43-4274253cbcab",
+		"name": "EventAPIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "7100409"
+	},
+	"item": [
+		{
+			"name": "Get Events with Caching",
+			"item": [
+				{
+					"name": "http://127.0.0.1:8000/api/events",
+					"request": {
+						"auth": {
+							"type": "inherit",
+							"inherit": {}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:8000/api/events"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create New Event",
+			"item": [
+				{
+					"name": "http://127.0.0.1:8000/api/events/create",
+					"request": {
+						"auth": {
+							"type": "inherit",
+							"inherit": {}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"Dancing concert\",\r\n    \"date\" : \"2025-05-03 11:00:00\",// (Accept only future date)\r\n    \"venue\" : \"Shuklaganj ,Knpur\",\r\n    \"capacity\" : 25,\r\n    \"is_recurring_event\" : true,// (Accept only true,false)\r\n    \"ticket_types\" : \"vip\",\r\n    \"recurring_type\" : \"weekly\" // (Accept only weekly,monthly when is_recurring_event is true)\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/events/create"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Update Event Details",
+			"item": [
+				{
+					"name": "http://127.0.0.1:8000/api/events/2",
+					"request": {
+						"auth": {
+							"type": "inherit",
+							"inherit": {}
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "XSRF-TOKEN=eyJpdiI6IjVSbnB2SVp3MzNLUUU1NktOV094ZUE9PSIsInZhbHVlIjoieWg3M0lLZUF1ekV6bEpFckMwRHFFQy9DRFVlZVdoTXkydXljSEZNcXhaTlFidStLcWJEUHMvc2oyeGdtWFY0dGxYMVJlcFErZDcwQzBvZDcyZHVkR3l5VUVZeXF1Q0hQdGtOTVZaK0VMUjFFTTJMZ1pwTU9tdCtKdlIrYmoxZC8iLCJtYWMiOiJkOWUwMDE5OGNkZjQ5ZTdhNjNlODFjNDdmNjI2OTUzZjc1OGMyMDJlNGJhYjk0NTFkOWEzMGVjOWNkZjUyOWQzIiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6InZmNlp2blZyODZwNEMzWjlYQ2pwcUE9PSIsInZhbHVlIjoidS9RbDI0Uk5jYktadFQ1ZVNzQ3dDdE96QzZrUnJjVkdtRHMxcUhLK3Rya1RUeHlOM3lTckFKSEMxN1lORHliOVQzY0pXaUt2L0NvajNZTGNVWHdXL21DeGZVbUljaTNqZkoyN3R4bS93Qm9kTDI1c1FCdGEyOVhjcURXbXl6RmEiLCJtYWMiOiJmZDc0ZDRjN2QwZDZiZWI4MWE4NDMzNGU0OTUyYmUyYzVmMTA3NGY5NmFlODI0YzBkYThiY2M3YmY0ZTgxYzJmIiwidGFnIjoiIn0%3D"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Singing Conert of Diljheet Dosanjh\",\n    \"description\" : \"First time in Aliganj Lucknow\",\n    \"address\" : \"Nawabganj Lucknow\",\n    \"is_recurring_event\" : false,\n    \"recurring_type\" : \"weekly\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/events/2"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Delete Event",
+			"item": [
+				{
+					"name": "http://127.0.0.1:8000/api/events/2",
+					"request": {
+						"auth": {
+							"type": "inherit",
+							"inherit": {}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/events/2"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Event Registration",
+			"item": [
+				{
+					"name": "http://127.0.0.1:8000/api/events/event-booking",
+					"request": {
+						"auth": {
+							"type": "inherit",
+							"inherit": {}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\" : \"Deepanshu\",\r\n    \"last_name\" : \"Mishra\",\r\n    \"event_id\" : 1,\r\n    \"email\" : \"mdeepanshu2023@gmail.com\",\r\n    \"phone\" : \"7786931234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/events/event-booking"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cancel Booking to update Waiting List with notifcation",
+			"item": [
+				{
+					"name": "http://127.0.0.1:8000/api/events/cancel-event-booking/1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "inherit",
+							"inherit": {}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/events/cancel-event-booking/1"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
