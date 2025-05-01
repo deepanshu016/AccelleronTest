@@ -7,29 +7,59 @@ REST API for managing tech events and attendee registrations
 
 
 # Step 1
-git clone https://github.com/deepanshu016/AccelleronTest.git
-cd AccelleronTest
-composer install
+<pre>
+    <code id="git-url">
+        git clone https://github.com/deepanshu016/AccelleronTest.git
+    </code>
+    <code id="git-copy">
+        cd AccelleronTest
+    </code>
+    <code id="composert-install">
+        composer install
+    </code>
+</pre>
 
 # Step 2
-cp .env.example .env
-php artisan key:generate
+<pre>
+    <code id="env-data">
+        cp .env.example .env
+    </code>
+</pre>
+
+<pre>
+    <code id="key-generate">
+        php artisan key:generate
+    </code>
+</pre>
+
 
 
 # Step 3
-php artisan migrate
+<pre>
+    <code id="artisan-migrate">
+        php artisan migrate
+    </code>
+</pre>
 
 
 # Manage All expired Event
-
-php artisan app:manage-expired-events
+<pre>
+    <code id="manage-expired-events">
+        php artisan app:manage-expired-events
+    </code>
+</pre>
 
 
 # Manage Notification for waiting list 
-php artisan queue:work
+<pre>
+    <code id="queue-work">
+       php artisan queue:work
+    </code>
+</pre>
 
 
-# Postman Collection for each APIs has been pushed on github
+
+**Postman Collection for each APIs has been pushed on github** 
 
 
 
